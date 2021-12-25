@@ -295,10 +295,10 @@ public class MyStaticMethod {
 
     public int sumFirstAndLast(int num) {
         int sum;
-        String val=String.valueOf(num);
-        val=val.replaceAll("(?<=\\d)\\d+(?=\\d)", "");
-        num=Integer.parseInt(val);//преобразование строки в число
-        sum=num%10+num/10;
+        String val = String.valueOf(num);
+        val = val.replaceAll("(?<=\\d)\\d+(?=\\d)", "");
+        num = Integer.parseInt(val);//преобразование строки в число
+        sum = num % 10 + num / 10;
         System.out.println(sum);
         return sum;
 

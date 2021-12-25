@@ -1,5 +1,8 @@
 package by.zimin;
 
+import java.util.Arrays;
+import java.util.Random;
+
 public class MyArrayMethod {
 
 
@@ -178,5 +181,78 @@ public class MyArrayMethod {
      * 6.	Создайте массив из 4 случайных целых чисел из отрезка [10;99], выведите его на экран в строку.
      * Определить и вывести на экран сообщение о том, является ли массив строго возрастающей последовательностью.
      */
+    public static String createArrAndCheckSequence() {
+        boolean isIncreasingSequence = false;
+        int[] arr = new int[4];
+        Random random = new Random();
+        for (int i = 0; i < arr.length; i++) {
+            int r = (random.nextInt(89) + 10);//от 10 до 99
+            arr[i] = r;
+        }
+        System.out.println("\n" + Arrays.toString(arr));
+        int count = 0;
+        for (int j = 1, y = 0; j < arr.length; j++, y++) {
+
+            if (arr[j] > arr[y]) {
+                isIncreasingSequence = true;
+                count++;
+            } else {
+                isIncreasingSequence = false;
+            }
+
+        }
+        String yesOrNo = (isIncreasingSequence == true && count == 3) ? "Yes increasing sequence." : "No , sequence is not increasing.";
+        System.out.println("\n" + yesOrNo);
+        return yesOrNo;
+
+    }
+
+    /**
+     * 7.	Создайте массив из 20-ти первых чисел Фибоначчи и выведите его на экран. Напоминаем,
+     * что первый и второй члены последовательности равны единицам, а каждый следующий — сумме двух предыдущих.
+     */
+    public static int[] createArrayFromTwentyNumbersFibonacci() {
+        int[] arrFib = new int[20];
+        int firstFib = 0;
+        int secondFib = 1;
+        for (int i = 0; i < 20; i++) {
+            if (i <= 1) {
+                arrFib[i] = i;
+            } else {
+                arrFib[i] = firstFib + secondFib;
+                firstFib = secondFib;
+                secondFib = arrFib[i];
+            }
+        }
+        System.out.println(Arrays.toString(arrFib));
+        return arrFib;
+    }
+
+    /**
+     * 8.	Создайте массив из 12 случайных целых чисел из отрезка [-15;15]. Определите
+     * какой элемент является в этом массиве максимальным и сообщите индекс его последнего вхождения в массив.
+     */
+    public static int createArrIntNumbers12AndShowIndexMaxElem() {
+
+        int[] arr = new int[12];
+        Random random = new Random();
+        for (int i = 0; i < arr.length; i++) {
+            int r = (random.nextInt(30) - 15);//от 10 до 99
+            arr[i] = r;
+
+        }
+        int indexMaxElem = 0;
+        int maxElem = arr[0];
+        for (int j = 0; j < arr.length; j++) {
+            if (arr[j] > maxElem) {
+                maxElem = arr[j];
+                indexMaxElem = j;
+            }
+        }
+        System.out.println(Arrays.toString(arr));
+        System.out.print("\n" + "Max element: " + maxElem + " index : " + indexMaxElem);
+        return indexMaxElem;
+    }
 }
+
 
